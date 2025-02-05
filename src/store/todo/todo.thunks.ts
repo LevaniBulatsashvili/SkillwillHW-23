@@ -18,7 +18,7 @@ export const fetchTodos = createAsyncThunk<
 
     if (!res.ok) throw new Error("Failed to fetch todos!");
 
-    const data = await res.json();
+    const data: { items: ITodo[] } = await res.json();
 
     return data.items;
   } catch (err) {
@@ -44,7 +44,7 @@ export const addTodoRequest = createAsyncThunk<
 
     if (!res.ok) throw new Error("Failed to update todo!");
 
-    const data = await res.json();
+    const data: { items: [ITodo] } = await res.json();
     return data.items[0];
   } catch (err) {
     if (err instanceof Error) return thunkApi.rejectWithValue(err.message);
@@ -69,7 +69,7 @@ export const finishTodoRequest = createAsyncThunk<
 
     if (!res.ok) throw new Error("Failed to update todo!");
 
-    const data = await res.json();
+    const data: ITodo = await res.json();
 
     return data;
   } catch (err) {
@@ -94,7 +94,7 @@ export const deleteTodoRequest = createAsyncThunk<
 
     if (!res.ok) throw new Error("Failed to delete todo!");
 
-    const data = await res.json();
+    const data: ITodo = await res.json();
 
     return data;
   } catch (err) {
