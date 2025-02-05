@@ -1,0 +1,24 @@
+.todo_card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #000cee81;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+
+  & > div {
+    display: flex;
+    gap: 0.5rem;
+
+    & > button:first-child {
+      color: #008000;
+    }
+    & > button:last-child {
+      color: #ff0000;
+    }
+  }
+}
+
+.done {
+  border: 2px solid #008000;
+}
